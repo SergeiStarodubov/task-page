@@ -1,18 +1,17 @@
-// .circle {
-//   box-sizing: border-box;
-//   height: 16px;
-//   border-radius: 8px;
-//   border: 0.5px solid black;
-//   position: absolute;
-//   top:22px;
-//   left:50px;
-//   padding-left: 5px;
-//   padding-right: 5px;
-//   text-align: center;
-//   line-height: 14px;
-//   font-size: 11px;
-// }
 
+.tabs {
+  font-size: 14px;
+}
+.addHeight {
+  height: 50px;
+  padding-top: 10px;
+}
+.horLine {
+  width: 100%;
+  border-color: orange;
+  margin: 0 0;
+  padding: 0 0;
+}
 .circle {
   margin-left: 5px;
   border-radius: 10px;
@@ -21,4 +20,9 @@
   padding-right: 4px;
   padding-bottom: 2px;
   font-size: 9px;
+  box-sizing: content-box;
+}
+.underline {
+  border-bottom: 1px solid;
+  border-bottom-color: black;
 }
