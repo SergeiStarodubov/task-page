@@ -3,14 +3,19 @@ import "../styles/Tasks.scss";
 import image from "../icons/iconfinder_button_shape_oval_352899.png";
 
 class Tasks extends React.Component {
+  state = {
+    input: ""
+  }
+  handleInput = (e) =>{
+    this.setState({input: e.target.value});
+  }
+
   handleLink(e) {
     const links = document.querySelectorAll(".barLinks");
     for (let link of links) {
       link.classList.remove("active");
       link.classList.remove("underline");
     }
-    // e.target.classList.add("underline");
-    // e.target.classList.add("active");
     e.target.closest(".nav-item").classList.add("underline");
     e.target.closest(".nav-item").classList.add("active");
   }
@@ -22,63 +27,67 @@ class Tasks extends React.Component {
         <nav className="navbar navbar-expand-lg navbar-light bg-light ml-0 pl-0 pt-0 pb-0">
           <div className="navbar-nav">
             <a
-              className="nav-item nav-link active underline pb-0 addHeight barLinks pl-0 ml-5"
+              className="nav-item nav-link active underline pb-0 addHeight barLinks pl-0 ml-5 "
               id="new"
               href="#"
-              onClick={this.handleLink}
             >
-              <span className="tabs">Новые</span>
-              <span className="align-middle circle">10</span>
+              <span className="tabs" onClick={this.handleLink}>
+                Новые
+              </span>
+              <span className="align-middle circle">2</span>
             </a>
             <a
               className="nav-item nav-link pl-0  pb-0 addHeight barLinks ml-5"
               href="#"
-              onClick={this.handleLink}
               id="onWorking"
             >
-              <span className="tabs">В работе</span>
-              <span className="align-middle circle">10</span>
+              <span className="tabs" onClick={this.handleLink}>
+                В работе
+              </span>
+              <span className="align-middle circle">5</span>
             </a>
             <a
               className="nav-item nav-link  pl-0 mp-0 pb-0  addHeight barLinks ml-5"
               href="#"
-              onClick={this.handleLink}
               id="considering"
             >
-              <span className="tabs">На рассмотрении</span>
+              <span className="tabs" onClick={this.handleLink}>
+                На рассмотрении
+              </span>
               <span className="align-middle circle">10</span>
             </a>
             <a
               className="nav-item nav-link ml-5 pl-0   pb-0 addHeight barLinks"
               href="#"
-              onClick={this.handleLink}
               id="done"
             >
-              <span className="tabs">Выполнены</span>
+              <span className="tabs" onClick={this.handleLink}>
+                Выполнены
+              </span>
               <span className="align-middle circle">10</span>
             </a>
             <a
               className="nav-item nav-link pl-0   pb-0 addHeight barLinks ml-5"
               href="#"
-              onClick={this.handleLink}
               id="canceled"
             >
-              <span className="tabs">Отменены</span>
+              <span className="tabs" onClick={this.handleLink}>
+                Отменены
+              </span>
               <span className="align-middle circle">10</span>
             </a>
             <a
               className="nav-item nav-link  pl-0 barLinks pb-0 addHeight ml-5"
               href="#"
-              onClick={this.handleLink}
             >
-              <span className="tabs">Черновики</span>
+              <span className="tabs" onClick={this.handleLink}>
+                Черновики
+              </span>
               <span className="align-middle circle">10</span>
             </a>
           </div>
         </nav>
-
         <hr className="horLine" />
-
         <nav className="navbar navbar-expand-lg navbar-light bg-light mt-5 ml-5 pl-0">
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <form className="form-inline my-2 my-lg-0">
@@ -87,6 +96,8 @@ class Tasks extends React.Component {
                 type="search"
                 placeholder="Поиск по слову"
                 aria-label="Search"
+                value = {this.state.input}
+                onChange = {this.handleInput}
               />
             </form>
             <ul className="navbar-nav mr-auto">
@@ -133,6 +144,26 @@ class Tasks extends React.Component {
             </ul>
           </div>
         </nav>
+        <table className="table mt-5 ml-5" style = {{width: "90%"}}>
+          <thead className="thead-light">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Город</th>
+              <th scope="col">Название</th>
+              <th scope="col">Выполнить до</th>
+              <th scope="col">Сумма</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1256</th>
+              <td>Самара</td>
+              <td>Подцепление провода клемной коробки</td>
+              <td>13 августа</td>
+              <td>10 000</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     );
   }
