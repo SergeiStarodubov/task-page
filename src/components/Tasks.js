@@ -11,6 +11,7 @@ class Tasks extends React.Component {
   }
 
   handleLink(e) {
+    //code
     const links = document.querySelectorAll(".barLinks");
     for (let link of links) {
       link.classList.remove("active");
