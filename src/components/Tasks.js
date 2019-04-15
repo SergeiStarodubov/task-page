@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Tasks.scss";
 import image from "../icons/iconfinder_button_shape_oval_352899.png";
+import Tables from "./tables/Tables.js";
 
 class Tasks extends React.Component {
   state = {
@@ -11,7 +12,6 @@ class Tasks extends React.Component {
   }
 
   handleLink(e) {
-    //code
     const links = document.querySelectorAll(".barLinks");
     for (let link of links) {
       link.classList.remove("active");
@@ -145,26 +145,8 @@ class Tasks extends React.Component {
             </ul>
           </div>
         </nav>
-        <table className="table mt-5 ml-5" style = {{width: "90%"}}>
-          <thead className="thead-light">
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Город</th>
-              <th scope="col">Название</th>
-              <th scope="col">Выполнить до</th>
-              <th scope="col">Сумма</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1256</th>
-              <td>Самара</td>
-              <td>Подцепление провода клемной коробки</td>
-              <td>13 августа</td>
-              <td>10 000</td>
-            </tr>
-          </tbody>
-        </table>
+
+        <Tables/>
       </div>
     );
   }
