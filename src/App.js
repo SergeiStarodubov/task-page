@@ -124,7 +124,7 @@ class App extends Component {
             </li>
           </ul>
         </header>
-        <div id = "wrapper">
+        <div id="wrapper">
           {page === "statisticsTab" ? (
             <Statistics />
           ) : page === "financeTab" ? (

@@ -4,14 +4,18 @@ import image from "../icons/iconfinder_button_shape_oval_352899.png";
 import Tables from "./tables/Tables.js";
 
 class Tasks extends React.Component {
+  constructor() {
+    super();
+  }
   state = {
-    input: ""
-  }
-  handleInput = (e) =>{
-    this.setState({input: e.target.value});
-  }
+    input: "",
+    currentTab: undefined
+  };
+  handleInput = e => {
+    this.setState({ input: e.target.value });
+  };
 
-  handleLink(e) {
+  handleLink = e => {
     const links = document.querySelectorAll(".barLinks");
     for (let link of links) {
       link.classList.remove("active");
@@ -19,9 +23,11 @@ class Tasks extends React.Component {
     }
     e.target.closest(".nav-item").classList.add("underline");
     e.target.closest(".nav-item").classList.add("active");
-  }
+    this.setState({ currentTab: e.target.id });
+  };
 
   render() {
+    const { currentTab } = this.state;
     return (
       <div className="container-fluid pl-0 pr-0">
         <h3 className="pt-3 pb-3 ml-5">Задания</h3>
@@ -32,7 +38,7 @@ class Tasks extends React.Component {
               id="new"
               href="#"
             >
-              <span className="tabs" onClick={this.handleLink}>
+              <span className="tabs" id="newTasks" onClick={this.handleLink}>
                 Новые
               </span>
               <span className="align-middle circle">2</span>
@@ -42,7 +48,7 @@ class Tasks extends React.Component {
               href="#"
               id="onWorking"
             >
-              <span className="tabs" onClick={this.handleLink}>
+              <span className="tabs" id="currentJob" onClick={this.handleLink}>
                 В работе
               </span>
               <span className="align-middle circle">5</span>
@@ -52,7 +58,7 @@ class Tasks extends React.Component {
               href="#"
               id="considering"
             >
-              <span className="tabs" onClick={this.handleLink}>
+              <span className="tabs" id="pendingJob" onClick={this.handleLink}>
                 На рассмотрении
               </span>
               <span className="align-middle circle">10</span>
@@ -62,7 +68,7 @@ class Tasks extends React.Component {
               href="#"
               id="done"
             >
-              <span className="tabs" onClick={this.handleLink}>
+              <span className="tabs" id="doneWork" onClick={this.handleLink}>
                 Выполнены
               </span>
               <span className="align-middle circle">10</span>
@@ -72,7 +78,7 @@ class Tasks extends React.Component {
               href="#"
               id="canceled"
             >
-              <span className="tabs" onClick={this.handleLink}>
+              <span className="tabs" id="canceled" onClick={this.handleLink}>
                 Отменены
               </span>
               <span className="align-middle circle">10</span>
@@ -81,7 +87,7 @@ class Tasks extends React.Component {
               className="nav-item nav-link  pl-0 barLinks pb-0 addHeight ml-5"
               href="#"
             >
-              <span className="tabs" onClick={this.handleLink}>
+              <span className="tabs" id="draftTasks" onClick={this.handleLink}>
                 Черновики
               </span>
               <span className="align-middle circle">10</span>
@@ -97,8 +103,8 @@ class Tasks extends React.Component {
                 type="search"
                 placeholder="Поиск по слову"
                 aria-label="Search"
-                value = {this.state.input}
-                onChange = {this.handleInput}
+                value={this.state.input}
+                onChange={this.handleInput}
               />
             </form>
             <ul className="navbar-nav mr-auto">
@@ -136,7 +142,6 @@ class Tasks extends React.Component {
                   <a className="dropdown-item" href="#">
                     Ночное
                   </a>
-
                   <a className="dropdown-item" href="#">
                     Срочное
                   </a>
@@ -145,8 +150,7 @@ class Tasks extends React.Component {
             </ul>
           </div>
         </nav>
-
-        <Tables/>
+        <Tables currentTab={currentTab} />
       </div>
     );
   }
