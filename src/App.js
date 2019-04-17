@@ -49,9 +49,9 @@ class App extends Component {
       <>
         <header
           className="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar"
-          style={{ background: "gray" }}
+          style={{ background: "#222222" }}
         >
-          <a className="navbar-brand mr-0 mr-md-2 pointer"> taskon </a>
+          <a className="navbar-brand mr-0 mr-md-2 pointer " id = "lable"> taskon </a>
           <div className="navbar-nav-scroll">
             <ul
               className="navbar-nav bd-navbar-nav flex-row"

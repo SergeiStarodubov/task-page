@@ -1,3 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+$pinkish-orange: #ff6633;
+$black: #222222;
+$warm-grey: #999999;
+$white: #dddddd;
+$white: #ffffff;
+$pinkish-grey: #cccccc;
+$brownish-grey: #666666;
+
+#lable {
+  color : $white;
+  padding-left: 30px;
+  font: 25px 'PT Sans', sans-serif;
+  font-weight: bold;
+
+}
+#tasksTab {
+  color : $brownish-grey;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 14px;
+  font: 12px 'PT Sans', sans-serif;
+  &:hover {
+    color:$warm-grey;
+  }
+}
 
 .tabs {
   font-size: 14px;

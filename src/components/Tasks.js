@@ -3,14 +3,27 @@ import "../styles/Tasks.scss";
 import image from "../icons/iconfinder_button_shape_oval_352899.png";
 import Tables from "./tables/Tables.js";
 
+import newTasks from "../data/new-tasks-table.json";
+import currentJob from "../data/current-job.json";
+import doneWork from "../data/done-work.json";
+import draftTasks from "../data/draft.json";
+import canceledWork from "../data/canceled.json";
+import pendingJob from "../data/panding-job.json";
+
 class Tasks extends React.Component {
   constructor() {
     super();
+    this.newTasks = 0;
+    this.currentJob = 0;
+    this.doneWork = 0;
+    this.draftTasks = 0;
+    this.canceledWork = 0;
+    this.pendingJob = 0;
   }
   state = {
-    input: "",
-    currentTab: undefined
+    input: ""
   };
+
   handleInput = e => {
     this.setState({ input: e.target.value });
   };
@@ -26,7 +39,29 @@ class Tasks extends React.Component {
     this.setState({ currentTab: e.target.id });
   };
 
+  getNumber = () => {
+    let i = 0;
+    for (let key in newTasks) {i++};
+    this.newTasks = i;
+    i = 0;
+    for (let key in currentJob) {i++};
+    this.currentJob = i;
+    i = 0;
+    for (let key in doneWork) {i++};
+    this.doneWork = i;
+    i = 0;
+    for (let key in draftTasks) {i++};
+    this.draftTasks = i;
+    i = 0;
+    for (let key in canceledWork) {i++};
+    this.canceledWork = i;
+    i = 0;
+    for (let key in pendingJob) {i++};
+    this.pendingJob = i;
+  }
+
   render() {
+    this.getNumber();
     const { currentTab } = this.state;
     return (
       <div className="container-fluid pl-0 pr-0">
@@ -41,7 +76,7 @@ class Tasks extends React.Component {
               <span className="tabs" id="newTasks" onClick={this.handleLink}>
                 Новые
               </span>
-              <span className="align-middle circle">2</span>
+              <span className="align-middle circle">{this.newTasks}</span>
             </a>
             <a
               className="nav-item nav-link pl-0  pb-0 addHeight barLinks ml-5"
@@ -51,7 +86,7 @@ class Tasks extends React.Component {
               <span className="tabs" id="currentJob" onClick={this.handleLink}>
                 В работе
               </span>
-              <span className="align-middle circle">5</span>
+              <span className="align-middle circle">{this.currentJob}</span>
             </a>
             <a
               className="nav-item nav-link  pl-0 mp-0 pb-0  addHeight barLinks ml-5"
@@ -61,7 +96,7 @@ class Tasks extends React.Component {
               <span className="tabs" id="pendingJob" onClick={this.handleLink}>
                 На рассмотрении
               </span>
-              <span className="align-middle circle">10</span>
+              <span className="align-middle circle">{this.pendingJob}</span>
             </a>
             <a
               className="nav-item nav-link ml-5 pl-0   pb-0 addHeight barLinks"
@@ -71,7 +106,7 @@ class Tasks extends React.Component {
               <span className="tabs" id="doneWork" onClick={this.handleLink}>
                 Выполнены
               </span>
-              <span className="align-middle circle">10</span>
+              <span className="align-middle circle">{this.doneWork}</span>
             </a>
             <a
               className="nav-item nav-link pl-0   pb-0 addHeight barLinks ml-5"
@@ -81,7 +116,7 @@ class Tasks extends React.Component {
               <span className="tabs" id="canceled" onClick={this.handleLink}>
                 Отменены
               </span>
-              <span className="align-middle circle">10</span>
+              <span className="align-middle circle">{this.canceledWork}</span>
             </a>
             <a
               className="nav-item nav-link  pl-0 barLinks pb-0 addHeight ml-5"
@@ -90,7 +125,7 @@ class Tasks extends React.Component {
               <span className="tabs" id="draftTasks" onClick={this.handleLink}>
                 Черновики
               </span>
-              <span className="align-middle circle">10</span>
+              <span className="align-middle circle">{this.draftTasks}</span>
             </a>
           </div>
         </nav>
