@@ -1,56 +1,47 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Sans');
-
-$pinkish-orange: #ff6633;
-$black: #222222;
-$warm-grey: #999999;
-$white: #dddddd;
 $white: #ffffff;
-$pinkish-grey: #cccccc;
-$brownish-grey: #666666;
+$font: "PT Sans";
 
-#lable {
-  color : $white;
-  padding-left: 30px;
-  font: 25px 'PT Sans', sans-serif;
-  font-weight: bold;
-
+@mixin setFontColor($f, $c) {
+  font: $f "PT Sans", sans-serif !important;
+  color: $c;
 }
-#tasksTab {
-  color : $brownish-grey;
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-top: 14px;
-  font: 12px 'PT Sans', sans-serif;
-  &:hover {
-    color:$warm-grey;
-  }
+
+.tasklable {
+  @include setFontColor(30px, "#4A4A4A");
 }
 
 .tabs {
-  font-size: 14px;
+  @include setFontColor(14px, "#404040");
+  font-weight: 600 !important;
 }
-.addHeight {
-  height: 50px;
-  padding-top: 10px;
-}
-.horLine {
-  width: 100%;
-  border-color: orange;
-  margin: 0 0;
-  padding: 0 0;
-}
+
 .circle {
   margin-left: 5px;
   border-radius: 10px;
-  border: 0.5px solid black;
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: #a7a7a7;
   padding-left: 4px;
   padding-right: 4px;
   padding-bottom: 2px;
   font-size: 9px;
   box-sizing: content-box;
-  color: black;
+  color: "#404040";
 }
+
+.horLine {
+  width: 100%;
+  border-color: "#F0F0F0";
+  margin: 0 0;
+  padding: 0 0;
+}
+
 .underline {
-  border-bottom: 1px solid;
-  border-bottom-color: black;
+  border-width:0 0 1px 0;
+  border-style: none none solid none;
+  border-color:#404040;
+}
+
+.fonted {
+  font-family: "PT Sans", sans-serif !important;
 }

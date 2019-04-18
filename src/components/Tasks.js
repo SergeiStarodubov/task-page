@@ -65,8 +65,8 @@ class Tasks extends React.Component {
     const { currentTab } = this.state;
     return (
       <div className="container-fluid pl-0 pr-0">
-        <h3 className="pt-3 pb-3 ml-5">Задания</h3>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light ml-0 pl-0 pt-0 pb-0">
+        <h3 className="pt-3 pb-3 ml-5 tasklable">Задания</h3>
+        <nav className="navbar navbar-expand-lg navbar-light ml-0 pl-0 pt-0 pb-0">
           <div className="navbar-nav">
             <a
               className="nav-item nav-link active underline pb-0 addHeight barLinks pl-0 ml-5 "
@@ -130,13 +130,14 @@ class Tasks extends React.Component {
           </div>
         </nav>
         <hr className="horLine" />
-        <nav className="navbar navbar-expand-lg navbar-light bg-light mt-5 ml-5 pl-0">
+        <nav className="navbar navbar-expand-lg navbar-light mt-5 ml-5 pl-0">
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <form className="form-inline my-2 my-lg-0">
               <input
                 className="form-control mr-sm-2"
                 type="search"
                 placeholder="Поиск по слову"
+                style = {{fontFamily: "PT Sans"}}
                 aria-label="Search"
                 value={this.state.input}
                 onChange={this.handleInput}
@@ -144,23 +145,23 @@ class Tasks extends React.Component {
             </form>
             <ul className="navbar-nav mr-auto">
               <li className="nav-item ml-3">
-                <a className="nav-link" href="#">
+                <a className="nav-link fonted" href="#">
                   <input type="checkbox" /> Персанальное
                 </a>
               </li>
-              <li className="nav-item ml-3">
+              <li className="nav-item ml-3 fonted">
                 <a className="nav-link" href="#">
                   <input type="checkbox" /> Ночное
                 </a>
               </li>
-              <li className="nav-item ml-3">
+              <li className="nav-item ml-3 fonted">
                 <a className="nav-link" href="#">
                   <input type="checkbox" /> Срочное
                 </a>
               </li>
               <li className="nav-item dropdown ml-3">
                 <a
-                  className="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle text-dark fonted"
                   href="#"
                   id="navbarDropdown"
                   role="button"

@@ -1,3 +1,46 @@
 .pointer {
   cursor: pointer;
 }
+
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+$pinkish-orange: #ff6633;
+$black: #222222;
+$warm-grey: #999999;
+$white: #dddddd;
+$white: #ffffff;
+$pinkish-grey: #cccccc;
+$brownish-grey: #666666;
+$font: 'PT Sans';
+
+@mixin setFontColor($f, $c) {
+  font: $f 'PT Sans', sans-serif !important;
+  color: $c;
+}
+
+#lable {
+  padding-left: 30px;
+  @include setFontColor(25px, $white);
+}
+
+.tab {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  padding-top: 12px;
+  font: 14px 'PT Sans', sans-serif !important;
+}
+.balance {
+    font: 14px 'PT Sans', sans-serif !important;
+}
+.money {
+  @include setFontColor(15px, $white);
+  padding-left: 10px;
+}
+.name {
+@include setFontColor(15px, $white);
+}
+
+.addHeight {
+  height: 50px;
+  padding-top: 10px;
+}

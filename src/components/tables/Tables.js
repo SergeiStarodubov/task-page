@@ -45,7 +45,7 @@ class Tables extends React.Component {
     let service = Object.assign({}, copiedJSON);
     for (let key in service) {
       service[key] = service[key].map((item, index) => {
-        return <td key={index}>{item}</td>;
+        return <td style = {{fontFamily: "PT Sans"}} key={index}>{item}</td>;
       });
     }
     for (let key in service) {
@@ -57,8 +57,8 @@ class Tables extends React.Component {
 
   render() {
     return (
-      <table className="table mt-5 ml-5" style={{ width: "90%" }}>
-        <thead className="thead-light">
+      <table className="table mt-5 ml-5" style={{ width: "90%", fontFamily: "PT Sans"}}>
+        <thead>
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Город</th>

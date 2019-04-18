@@ -51,7 +51,10 @@ class App extends Component {
           className="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar"
           style={{ background: "#222222" }}
         >
-          <a className="navbar-brand mr-0 mr-md-2 pointer " id = "lable"> taskon </a>
+          <a className="navbar-brand mr-0 mr-md-2 pointer " id="lable">
+            {" "}
+            taskon{" "}
+          </a>
           <div className="navbar-nav-scroll">
             <ul
               className="navbar-nav bd-navbar-nav flex-row"
@@ -81,7 +84,7 @@ class App extends Component {
           </div>
           <ul className="navbar-nav flex-row ml-md-auto d-none d-md-flex">
             <li className="nav-item pointer">
-              <a className="nav-link p-2"> Баланс: 204 012 Р</a>
+              <a className="nav-link p-2"> <span className = "balance">Баланс  </span> <span className = "money">204 012 Р</span></a>
             </li>
             <li className="nav-item pointer">
               <a className="nav-link p-2">
@@ -100,7 +103,7 @@ class App extends Component {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Сергей Стародубов
+                <span className = "name">Сергей Стародубов</span>
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a className="dropdown-item" href="#">
